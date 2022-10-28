@@ -32,23 +32,24 @@ class ImageFilterAdapter(
                 binding.imageFilterPreview.setImageBitmap(filterPreview)
                 binding.textFilterName.text = name
                 binding.root.setOnClickListener {
-                    if (position!=selectedFilterPosition){
+                    if (position != selectedFilterPosition) {
                         imageFilterListener.onFilterSelected(this)
-                        previousSelectedPositions=selectedFilterPosition
-                        selectedFilterPosition=position
-                        with(this@ImageFilterAdapter){
-                            notifyItemChanged(previousSelectedPositions,Unit)
-                            notifyItemChanged(selectedFilterPosition,Unit)
+                        previousSelectedPositions = selectedFilterPosition
+                        selectedFilterPosition = position
+                        with(this@ImageFilterAdapter) {
+                            notifyItemChanged(previousSelectedPositions, Unit)
+                            notifyItemChanged(selectedFilterPosition, Unit)
                         }
                     }
                 }
             }
             binding.textFilterName.setTextColor(
-                ContextCompat.getColor(binding.textFilterName.context,
-                if (selectedFilterPosition==position)
-                    R.color.primaryDark
-                else
-                    R.color.primaryText
+                ContextCompat.getColor(
+                    binding.textFilterName.context,
+                    if (selectedFilterPosition == position)
+                        R.color.primaryDark
+                    else
+                        R.color.primaryText
                 )
             )
         }
